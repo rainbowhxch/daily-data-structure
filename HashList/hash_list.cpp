@@ -1,4 +1,5 @@
 #include "hash_list.h"
+#include <iterator>
 
 template <typename T, typename V>
 Hash_list<T, V>::Hash_list(int capacity)
@@ -11,7 +12,7 @@ V Hash_list<T, V>::get(T key)
 {
     if (!hashmap.count(key))
         return nullptr;
-    auto val = hashmap[key]->val;
+    V val = hashmap[key]->val;
     put(key, val);
     return val;
 }
@@ -22,13 +23,15 @@ void Hash_list<T, V>::put(T key, V val)
     Node tmp = {key, val};
     if (!hashmap.count(key)) {
         if (cap == hashmap.size()) {
+            T del = data.back().key;
             data.pop_back();
-            hashmap.erase(key);
+            hashmap.erase(del);
         }
     } else {
-        data.erase(*hashmap[key]);
+        /* error! */
+        data.remove(*hashmap[key]);
     }
 
-    data.push_front(tmp);
-    hashmap[key] = &data[0];
+    data.push_front(move(tmp));
+    hashmap[key] = &data.front();
 }
