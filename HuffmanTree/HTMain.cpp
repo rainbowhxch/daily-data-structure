@@ -6,8 +6,7 @@ int main()
     int chance = 1;
     while (true)
     {
-        cout << "Author:1710243231陈恒勋\n"
-        "1----输入HuffmanTree的参数\n"
+        cout << "1----输入HuffmanTree的参数\n"
         "2----初始化HuffmanTree的参数.（含26个字母和空格）\n"
         "3----输出编码表\n"
         "4----输入编码并翻译为字符\n"

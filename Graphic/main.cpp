@@ -4,8 +4,7 @@ int main()
 {
     Graphic* test1;
     int chance = 1;
-    cout << "Author:1710243231陈恒勋\n"
-        "1----创建Graphic（邻接表和邻接矩阵）\n"
+    cout << "1----创建Graphic（邻接表和邻接矩阵）\n"
         "2----深度优先遍历\n"
         "3----广度优先遍历\n"
         "4----最短路径（Dijkstra算法）\n"
